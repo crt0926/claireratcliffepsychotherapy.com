@@ -407,6 +407,19 @@ nav{top:4px}
   ]
 }
   </script>
+  <!-- Google Analytics: loads only after the visitor accepts cookies (Consent Mode, default denied) -->
+  <script>
+  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+  window.crpConsent=(function(){try{var c=JSON.parse(localStorage.getItem('crp_consent')||'null');if(c&&c.t&&(Date.now()-c.t)<15552000000)return c.v;}catch(e){}return null;})();
+  window.crpLoadGA=function(){
+    if(window.__gaLoaded)return;window.__gaLoaded=true;
+    gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'denied'});
+    var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1H6D52QWS7';document.head.appendChild(s);
+    gtag('js',new Date());gtag('config','G-1H6D52QWS7',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false});
+  };
+  if(window.crpConsent==='yes')window.crpLoadGA();
+  </script>
 </head>
 <body>
 <!-- NAV -->
@@ -447,7 +460,7 @@ nav{top:4px}
   <div class="legal" style="max-width:780px;margin:0 auto;padding:4rem 2rem 5rem">
     <span class="lbl">Legal</span>
     <h1 style="font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:.4rem">Privacy Policy</h1>
-    <p style="font-size:.82rem;color:var(--muted);margin-bottom:2.5rem">Effective date: 4 September 2026</p>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:2.5rem">Effective date: 9 October 2026</p>
 
     <h2>1. Purpose of this Privacy Policy</h2>
     <p>This Privacy Policy explains how Claire Ratcliffe Psychotherapy collects, uses, stores and protects personal information when people use the website, join a mailing list, book therapy or supervision sessions, join an online group or membership, or otherwise contact the business. The aim is to be clear and transparent about what information is collected, why it is needed, how long it is kept, who it may be shared with, and what rights individuals have.</p>
@@ -529,9 +542,15 @@ nav{top:4px}
       <li><strong>Vimeo</strong>: private video hosting for educational content</li>
       <li><strong>Zoom</strong>: online sessions</li>
       <li><strong>Google</strong>: email and storage</li>
+      <li><strong>Google Analytics</strong>: website usage statistics, only with your consent (see Cookies and analytics below)</li>
     </ul>
 
-    <h2>11. How long information is kept</h2>
+        <h2 id="cookies">11. Cookies and analytics</h2>
+    <p>This website uses a small number of cookies. Strictly necessary ones are set by the booking and payment systems (Acuity Scheduling and Stripe) so that a booking can be completed securely; these cannot be switched off and do not track you across other websites.</p>
+    <p>With your consent, the site also uses Google Analytics to understand how it is used: which pages are visited, roughly where visitors are from, and how they arrived at the site. IP addresses are anonymised, Google Signals and advertising personalisation are switched off, and the data is kept for two months. In future, and again only with your consent, Google Ads conversion measurement may be used to tell whether an advert led to a booking. Google processes this data under its own privacy policy.</p>
+    <p>No analytics or advertising cookies are set until you click Accept on the cookie banner. Your choice is remembered for six months. You can change it at any time using the Cookie settings link in the footer of any page, or by clearing cookies in your browser. Nothing about the content of sessions, intake forms or bookings is ever sent to Google.</p>
+
+    <h2>12. How long information is kept</h2>
     <table>
       <tr><th>Record type</th><th>Retention approach</th></tr>
       <tr><td>Enquiries that do not become clients</td><td>Retained only as long as needed, then deleted or anonymised</td></tr>
@@ -542,13 +561,13 @@ nav{top:4px}
       <tr><td>Marketing list data</td><td>Until unsubscribed or consent withdrawn</td></tr>
     </table>
 
-    <h2>12. Confidentiality and safeguarding</h2>
+    <h2>13. Confidentiality and safeguarding</h2>
     <p>Therapy and supervision services are provided on a confidential basis, subject to legal, safeguarding, professional and ethical exceptions. Information may need to be shared where there is a serious risk of harm, a safeguarding concern, a legal requirement, a court order, or an insurance or professional requirement.</p>
 
-    <h2>13. Your rights</h2>
+    <h2>14. Your rights</h2>
     <p>Under UK data protection law you have rights including the right to access your personal information, request correction of inaccurate data, request deletion where appropriate, object to processing, and request restriction of processing. To exercise any of these rights please contact claireratcliffetherapy@gmail.com. You also have the right to complain to the Information Commissioner's Office (ICO) at ico.org.uk.</p>
 
-    <h2>14. Contact</h2>
+    <h2>15. Contact</h2>
     <p>For any questions about this policy or about how your information is handled, please contact:<br>
     Claire Ratcliffe Psychotherapy<br>
     claireratcliffetherapy@gmail.com</p>
@@ -687,6 +706,34 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.nlinks a[href]').forEach(a=>{ if(a.getAttribute('href').split('#')[0]===here) a.classList.add('cur'); });
 });
 window.addEventListener('hashchange',applyHash);
+</script>
+<!-- Cookie consent banner -->
+<style>
+.ckb{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;margin:0 auto;max-width:560px;background:var(--white);color:var(--charcoal);border:1px solid var(--border);box-shadow:0 10px 40px rgba(0,0,0,.12);padding:1.1rem 1.3rem;font-family:var(--sans);font-size:.84rem;line-height:1.7;display:none}
+.ckb.show{display:block}
+.ckb p{margin:0 0 .8rem}
+.ckb a{color:var(--sage);text-decoration:underline}
+.ckb .ckr{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.ckb .btn{padding:.55rem 1.2rem;font-size:.66rem}
+.ckl{color:inherit;text-decoration:underline;cursor:pointer;opacity:.7}
+</style>
+<div class="ckb" id="ckb" role="dialog" aria-label="Cookie choices">
+  <p>This site uses cookies to understand how it's used and, in future, to measure advertising. Nothing is stored unless you accept. See the <a href="privacy-policy.html#cookies">privacy policy</a> for details.</p>
+  <div class="ckr"><span class="btn bdk" onclick="crpSetConsent('yes')">Accept</span><span class="btn bot" onclick="crpSetConsent('no')">Decline</span></div>
+</div>
+<script>
+function crpSetConsent(v){
+  try{localStorage.setItem('crp_consent',JSON.stringify({v:v,t:Date.now()}));}catch(e){}
+  window.crpConsent=v;
+  document.getElementById('ckb').classList.remove('show');
+  if(v==='yes')window.crpLoadGA();
+}
+function crpCookieSettings(){document.getElementById('ckb').classList.add('show');}
+document.addEventListener('DOMContentLoaded',function(){
+  if(window.crpConsent===null)document.getElementById('ckb').classList.add('show');
+  var f=document.querySelector('.fbo');
+  if(f){var a=document.createElement('a');a.className='ckl';a.textContent='Cookie settings';a.href='#';a.onclick=function(e){e.preventDefault();crpCookieSettings();};f.appendChild(a);}
+});
 </script>
 </body>
 </html>

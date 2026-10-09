@@ -425,6 +425,19 @@ nav{top:4px}
   ]
 }
   </script>
+  <!-- Google Analytics: loads only after the visitor accepts cookies (Consent Mode, default denied) -->
+  <script>
+  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+  window.crpConsent=(function(){try{var c=JSON.parse(localStorage.getItem('crp_consent')||'null');if(c&&c.t&&(Date.now()-c.t)<15552000000)return c.v;}catch(e){}return null;})();
+  window.crpLoadGA=function(){
+    if(window.__gaLoaded)return;window.__gaLoaded=true;
+    gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'denied'});
+    var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-1H6D52QWS7';document.head.appendChild(s);
+    gtag('js',new Date());gtag('config','G-1H6D52QWS7',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false});
+  };
+  if(window.crpConsent==='yes')window.crpLoadGA();
+  </script>
 </head>
 <body>
 <!-- NAV -->
@@ -650,6 +663,34 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.nlinks a[href]').forEach(a=>{ if(a.getAttribute('href').split('#')[0]===here) a.classList.add('cur'); });
 });
 window.addEventListener('hashchange',applyHash);
+</script>
+<!-- Cookie consent banner -->
+<style>
+.ckb{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;margin:0 auto;max-width:560px;background:var(--white);color:var(--charcoal);border:1px solid var(--border);box-shadow:0 10px 40px rgba(0,0,0,.12);padding:1.1rem 1.3rem;font-family:var(--sans);font-size:.84rem;line-height:1.7;display:none}
+.ckb.show{display:block}
+.ckb p{margin:0 0 .8rem}
+.ckb a{color:var(--sage);text-decoration:underline}
+.ckb .ckr{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.ckb .btn{padding:.55rem 1.2rem;font-size:.66rem}
+.ckl{color:inherit;text-decoration:underline;cursor:pointer;opacity:.7}
+</style>
+<div class="ckb" id="ckb" role="dialog" aria-label="Cookie choices">
+  <p>This site uses cookies to understand how it's used and, in future, to measure advertising. Nothing is stored unless you accept. See the <a href="privacy-policy.html#cookies">privacy policy</a> for details.</p>
+  <div class="ckr"><span class="btn bdk" onclick="crpSetConsent('yes')">Accept</span><span class="btn bot" onclick="crpSetConsent('no')">Decline</span></div>
+</div>
+<script>
+function crpSetConsent(v){
+  try{localStorage.setItem('crp_consent',JSON.stringify({v:v,t:Date.now()}));}catch(e){}
+  window.crpConsent=v;
+  document.getElementById('ckb').classList.remove('show');
+  if(v==='yes')window.crpLoadGA();
+}
+function crpCookieSettings(){document.getElementById('ckb').classList.add('show');}
+document.addEventListener('DOMContentLoaded',function(){
+  if(window.crpConsent===null)document.getElementById('ckb').classList.add('show');
+  var f=document.querySelector('.fbo');
+  if(f){var a=document.createElement('a');a.className='ckl';a.textContent='Cookie settings';a.href='#';a.onclick=function(e){e.preventDefault();crpCookieSettings();};f.appendChild(a);}
+});
 </script>
 </body>
 </html>
