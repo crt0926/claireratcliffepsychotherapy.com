@@ -768,5 +768,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 window.addEventListener('hashchange',applyHash);
 </script>
+<script>
+// Booking complete: Acuity's custom conversion snippet posts a message; send the client to the thank-you page
+window.addEventListener('message',function(e){
+  if(!e.origin || e.origin.indexOf('acuityscheduling.com')===-1) return;
+  var d=e.data; if(typeof d==='string'){ try{ d=JSON.parse(d); }catch(x){ return; } }
+  if(d && d.event==='crpBooked'){ window.location.href='booking-confirmed.html'; }
+});
+</script>
 </body>
 </html>
