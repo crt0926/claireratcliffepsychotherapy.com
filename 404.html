@@ -352,7 +352,7 @@ nav{top:4px}
   <!-- Primary SEO -->
   <title>Page not found | Claire Ratcliffe Psychotherapy</title>
   <meta name="description" content="Online individual, couples and relationship therapy, sex therapy and LGBTQIA+ affirming support across the UK with a BACP-registered psychotherapist. Supervision for therapists.">
-  <meta name="keywords" content="couples therapist online UK, online couples therapy, relationship therapist online, sex therapist online UK, LGBTQ therapist UK, clinical supervision couples therapy, online psychotherapy UK, small group therapy online, group supervision for therapists">
+  <meta name="keywords" content="couples therapist online UK, online couples therapy, relationship therapist online, sex therapist online UK, LGBTQ therapist UK, clinical supervision couples therapy, online psychotherapy UK, healing relationships membership online, group supervision for therapists">
   <meta name="author" content="Claire Ratcliffe Psychotherapy">
   <meta name="robots" content="noindex">
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -548,7 +548,7 @@ nav{top:4px}
   </div>
 </div>
 <script>
-const PAGES={"home": "index.html", "therapy": "therapy.html", "book": "book.html", "therapists": "for-therapists.html", "mailing": "mailing-list.html", "about": "about.html", "fees": "fees.html", "contact": "contact.html", "faq": "faq.html", "privacy": "privacy-policy.html", "terms": "terms.html", "group-therapy": "small-group-therapy.html", "group-supervision": "small-group-supervision.html"};
+const PAGES={"home": "index.html", "therapy": "therapy.html", "book": "book.html", "therapists": "for-therapists.html", "mailing": "mailing-list.html", "about": "about.html", "fees": "fees.html", "contact": "contact.html", "faq": "faq.html", "privacy": "privacy-policy.html", "terms": "terms.html", "group-therapy": "healing-relationships.html", "healing-relationships": "healing-relationships.html", "group-supervision": "small-group-supervision.html"};
 function sp(n){ if(PAGES[n]) window.location.href=PAGES[n]; }
 
 function switchTherapyTab(name){
@@ -637,7 +637,7 @@ function sbt(sessionId){
 function applyHash(){
   const h=(location.hash||'').replace('#','');
   if(!h) return;
-  const TT={'healing-relationships':'membership'};
+  const TT={'healing-relationships':'membership','community':'membership'};
   if(document.getElementById('tht-'+h)) switchTherapyTab(h);
   else if(document.getElementById('ttht-'+(TT[h]||h))) switchTherapistsTab(TT[h]||h);
   else if(document.getElementById('bk-'+h)) sbt(h);

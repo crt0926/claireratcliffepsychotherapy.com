@@ -476,10 +476,10 @@ nav{top:4px}
       <li>Individual therapy, online, UK and international</li>
       <li>Couples and relationship therapy, online, UK and international</li>
       <li>Couples therapy intensives, online, by enquiry</li>
-      <li>Small Group Therapy, 12-week psychoeducation programme, open to all</li>
+      <li>Healing Relationships, ongoing monthly online psychoeducational membership, open to all (payments through Stripe; members' emails through Kit; catch-up recordings through Vimeo)</li>
       <li>Individual supervision, online, for qualified and trainee therapists</li>
       <li>Small Group Supervision, 6-month online supervision groups for therapists</li>
-      <li>Healing Relationships, online community for therapists, currently in development (mailing list sign-up only until launch in early 2027)</li>
+      <li>Online community for therapists, currently in development (mailing list sign-up only until launch in 2027)</li>
       <li>Waiting lists, mailing lists and general enquiries</li>
     </ul>
 
@@ -540,7 +540,8 @@ nav{top:4px}
       <li><strong>Kit (formerly ConvertKit)</strong>: mailing list and email communications</li>
       <li><strong>Formspree</strong>: contact and enquiry form submissions</li>
       <li><strong>Vimeo</strong>: private video hosting for educational content</li>
-      <li><strong>Zoom</strong>: online sessions</li>
+      <li><strong>Zoom</strong>: online sessions. Healing Relationships membership sessions are recorded for catch-up with Claire and her teaching material on screen only; members' video, names and chat messages are not included</li>
+      <li><strong>Vimeo</strong>: private, view-only hosting of Healing Relationships catch-up recordings, available to members for two weeks</li>
       <li><strong>Google</strong>: email and storage</li>
       <li><strong>Google Analytics</strong>: website usage statistics, only with your consent (see Cookies and analytics below)</li>
     </ul>
@@ -579,12 +580,12 @@ nav{top:4px}
         <li><a href="lgbtqia.html">LGBTQIA+ Affirming Therapy</a></li>
         <li><a href="therapy.html#individual">Individual Therapy</a></li>
         <li><a href="therapy.html#couples">Couples Therapy</a></li>
-        <li><a href="therapy.html#group">Small Group Therapy</a></li>
+        <li><a href="healing-relationships.html">Healing Relationships Membership</a></li>
       </ul></div>
       <div class="fc2"><h4>For Therapists</h4><ul>
         <li><a href="for-therapists.html#supervision">Individual Supervision</a></li>
         <li><a href="for-therapists.html#group">Small Group Supervision</a></li>
-        <li><a href="for-therapists.html#healing-relationships">Healing Relationships</a></li>
+        <li><a href="for-therapists.html#community">Therapists' Community (coming 2027)</a></li>
       </ul></div>
       <div class="fc2"><h4>Information</h4><ul>
         <li><a href="about.html">About Me</a></li>
@@ -605,7 +606,7 @@ nav{top:4px}
   </div>
 </div>
 <script>
-const PAGES={"home": "index.html", "therapy": "therapy.html", "book": "book.html", "therapists": "for-therapists.html", "mailing": "mailing-list.html", "about": "about.html", "fees": "fees.html", "contact": "contact.html", "faq": "faq.html", "privacy": "privacy-policy.html", "terms": "terms.html", "group-therapy": "small-group-therapy.html", "group-supervision": "small-group-supervision.html"};
+const PAGES={"home": "index.html", "therapy": "therapy.html", "book": "book.html", "therapists": "for-therapists.html", "mailing": "mailing-list.html", "about": "about.html", "fees": "fees.html", "contact": "contact.html", "faq": "faq.html", "privacy": "privacy-policy.html", "terms": "terms.html", "group-therapy": "healing-relationships.html", "healing-relationships": "healing-relationships.html", "group-supervision": "small-group-supervision.html"};
 function sp(n){ if(PAGES[n]) window.location.href=PAGES[n]; }
 
 function switchTherapyTab(name){
@@ -694,7 +695,7 @@ function sbt(sessionId){
 function applyHash(){
   const h=(location.hash||'').replace('#','');
   if(!h) return;
-  const TT={'healing-relationships':'membership'};
+  const TT={'healing-relationships':'membership','community':'membership'};
   if(document.getElementById('tht-'+h)) switchTherapyTab(h);
   else if(document.getElementById('ttht-'+(TT[h]||h))) switchTherapistsTab(TT[h]||h);
   else if(document.getElementById('bk-'+h)) sbt(h);

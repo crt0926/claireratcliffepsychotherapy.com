@@ -529,11 +529,12 @@ nav{top:4px}
           <li><a href="therapy.html">Couples &amp; Relationship</a></li>
           <li><a href="therapy.html">Sex Therapy</a></li>
             <li><a href="therapy.html">Couples Intensive</a></li>
+            <li><a href="healing-relationships.html">Healing Relationships Membership</a></li>
         </ul></div>
         <div class="fc2"><h4>For Therapists</h4><ul>
           <li><a href="for-therapists.html#supervision">Individual Supervision</a></li>
           <li><a href="for-therapists.html#group">Small Group Supervision</a></li>
-          <li><a href="for-therapists.html#healing-relationships">Healing Relationships</a></li>
+          <li><a href="for-therapists.html#community">Therapists' Community (coming 2027)</a></li>
         </ul></div>
         <div class="fc2"><h4>Information</h4><ul>
           <li><a href="book.html">Book a Session</a></li>
@@ -562,7 +563,7 @@ nav{top:4px}
   </div>
 </div>
 <script>
-const PAGES={"home": "index.html", "therapy": "therapy.html", "book": "book.html", "therapists": "for-therapists.html", "mailing": "mailing-list.html", "about": "about.html", "fees": "fees.html", "contact": "contact.html", "faq": "faq.html", "privacy": "privacy-policy.html", "terms": "terms.html", "group-therapy": "small-group-therapy.html", "group-supervision": "small-group-supervision.html"};
+const PAGES={"home": "index.html", "therapy": "therapy.html", "book": "book.html", "therapists": "for-therapists.html", "mailing": "mailing-list.html", "about": "about.html", "fees": "fees.html", "contact": "contact.html", "faq": "faq.html", "privacy": "privacy-policy.html", "terms": "terms.html", "group-therapy": "healing-relationships.html", "healing-relationships": "healing-relationships.html", "group-supervision": "small-group-supervision.html"};
 function sp(n){ if(PAGES[n]) window.location.href=PAGES[n]; }
 
 function switchTherapyTab(name){
@@ -651,7 +652,7 @@ function sbt(sessionId){
 function applyHash(){
   const h=(location.hash||'').replace('#','');
   if(!h) return;
-  const TT={'healing-relationships':'membership'};
+  const TT={'healing-relationships':'membership','community':'membership'};
   if(document.getElementById('tht-'+h)) switchTherapyTab(h);
   else if(document.getElementById('ttht-'+(TT[h]||h))) switchTherapistsTab(TT[h]||h);
   else if(document.getElementById('bk-'+h)) sbt(h);

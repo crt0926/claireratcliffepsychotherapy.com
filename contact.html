@@ -458,7 +458,7 @@ nav{top:4px}
       <div class="dv"></div>
       <div class="cd"><strong>Email</strong><a href="mailto:claireratcliffetherapy@gmail.com">claireratcliffetherapy@gmail.com</a></div>
       <div class="cd"><strong>Phone</strong><a href="tel:07830906822">07830 906822</a></div>
-      <p style="color:var(--mid);font-size:.9rem;line-height:1.88;margin-top:1.2rem">Whether you're looking for therapy, enquiring about an intensive, joining a supervision group or asking about Healing Relationships. Get in touch and I'll help you find the right route.</p>
+      <p style="color:var(--mid);font-size:.9rem;line-height:1.88;margin-top:1.2rem">Whether you're looking for therapy, enquiring about an intensive, joining a supervision group or asking about the Healing Relationships membership. Get in touch and I'll help you find the right route.</p>
       <div style="margin-top:2rem">
         <span class="lbl">Find me online</span>
         <div class="sp">
@@ -482,7 +482,7 @@ nav{top:4px}
         <div class="fr"><div class="fg"><label for="cf-name">First name *</label><input type="text" required id="cf-name" name="first_name"/></div><div class="fg"><label for="cf-lname">Last name *</label><input type="text" required id="cf-lname" name="last_name"/></div></div>
         <div class="fg"><label for="cf-email">Email *</label><input type="email" required id="cf-email" name="email"/></div>
         <div class="fg"><label for="cf-phone">Phone</label><input type="tel" id="cf-phone" name="phone"/></div>
-        <div class="fg"><label for="cf-enquiry">I am enquiring about</label><select id="cf-enquiry" name="enquiring_about"><option value="">Please select</option><option>Individual therapy</option><option>Couples / relationship therapy</option><option>Couples therapy intensive</option><option>Clinical supervision (individual)</option><option>Small Group Supervision</option><option>Healing Relationships (coming 2027)</option><option>Something else</option></select></div>
+        <div class="fg"><label for="cf-enquiry">I am enquiring about</label><select id="cf-enquiry" name="enquiring_about"><option value="">Please select</option><option>Individual therapy</option><option>Couples / relationship therapy</option><option>Couples therapy intensive</option><option>Clinical supervision (individual)</option><option>Small Group Supervision</option><option>Healing Relationships membership</option><option>Therapists' community (coming 2027)</option><option>Something else</option></select></div>
         <div class="fg"><label for="cf-message">Your message</label><textarea id="cf-message" name="message" required placeholder="Tell me a little about what you're looking for, or just say hello."></textarea></div>
         <div class="cr"><input type="checkbox" id="cl1" name="marketing_consent" value="yes"><label for="cl1">I would like to receive marketing updates from Claire Ratcliffe Psychotherapy. I can unsubscribe at any time.</label></div>
         <p class="fn">Data processed in accordance with GDPR and our <a href="privacy-policy.html" style="color:var(--sage);cursor:pointer">privacy policy</a>.</p>
@@ -504,11 +504,12 @@ nav{top:4px}
           <li><a href="therapy.html">Couples &amp; Relationship</a></li>
           <li><a href="therapy.html">Sex Therapy</a></li>
             <li><a href="therapy.html">Couples Intensive</a></li>
+            <li><a href="healing-relationships.html">Healing Relationships Membership</a></li>
         </ul></div>
         <div class="fc2"><h4>For Therapists</h4><ul>
           <li><a href="for-therapists.html#supervision">Individual Supervision</a></li>
           <li><a href="for-therapists.html#group">Small Group Supervision</a></li>
-          <li><a href="for-therapists.html#healing-relationships">Healing Relationships</a></li>
+          <li><a href="for-therapists.html#community">Therapists' Community (coming 2027)</a></li>
         </ul></div>
         <div class="fc2"><h4>Information</h4><ul>
           <li><a href="book.html">Book a Session</a></li>
@@ -537,7 +538,7 @@ nav{top:4px}
   </div>
 </div>
 <script>
-const PAGES={"home": "index.html", "therapy": "therapy.html", "book": "book.html", "therapists": "for-therapists.html", "mailing": "mailing-list.html", "about": "about.html", "fees": "fees.html", "contact": "contact.html", "faq": "faq.html", "privacy": "privacy-policy.html", "terms": "terms.html", "group-therapy": "small-group-therapy.html", "group-supervision": "small-group-supervision.html"};
+const PAGES={"home": "index.html", "therapy": "therapy.html", "book": "book.html", "therapists": "for-therapists.html", "mailing": "mailing-list.html", "about": "about.html", "fees": "fees.html", "contact": "contact.html", "faq": "faq.html", "privacy": "privacy-policy.html", "terms": "terms.html", "group-therapy": "healing-relationships.html", "healing-relationships": "healing-relationships.html", "group-supervision": "small-group-supervision.html"};
 function sp(n){ if(PAGES[n]) window.location.href=PAGES[n]; }
 
 function switchTherapyTab(name){
@@ -626,7 +627,7 @@ function sbt(sessionId){
 function applyHash(){
   const h=(location.hash||'').replace('#','');
   if(!h) return;
-  const TT={'healing-relationships':'membership'};
+  const TT={'healing-relationships':'membership','community':'membership'};
   if(document.getElementById('tht-'+h)) switchTherapyTab(h);
   else if(document.getElementById('ttht-'+(TT[h]||h))) switchTherapistsTab(TT[h]||h);
   else if(document.getElementById('bk-'+h)) sbt(h);

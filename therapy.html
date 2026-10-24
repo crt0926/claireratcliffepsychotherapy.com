@@ -538,7 +538,7 @@ nav{top:4px}
         <span class="tht-num">02</span> Couples
       </button>
       <button class="thtab" id="tht-group" onclick="switchTherapyTab('group')">
-        <span class="tht-num">03</span> Group
+        <span class="tht-num">03</span> Membership
       </button>
     </div>
   </div>
@@ -765,16 +765,16 @@ nav{top:4px}
       <div class="w">
         <div style="display:grid;grid-template-columns:3fr 2fr;gap:3rem;align-items:start">
           <div>
-            <span class="lbl">Group programme</span>
-            <h2 style="font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2.2rem);margin-bottom:1rem">Small Group Therapy</h2>
+            <span class="lbl">Online membership · open to everyone</span>
+            <h2 style="font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2.2rem);margin-bottom:1rem">Healing Relationships</h2>
             <div class="dv"></div>
-            <p style="color:var(--mid);font-size:.9rem;line-height:1.88;margin-bottom:1.5rem">A structured 12-week online psychoeducation programme exploring boundaries, consent, relationships and self-understanding. Nine sessions, small and confidential, open to everyone, no referral or previous therapy needed.</p>
-            <a class="btn bdk" href="small-group-therapy.html">Full details &amp; booking →</a>
+            <p style="color:var(--mid);font-size:.9rem;line-height:1.88;margin-bottom:1.5rem">Why do I keep ending up in the same place? An ongoing online membership for understanding yourself and your relationships: two live sessions a month with me, a new theme each month (boundaries, consent, the patterns we repeat, shame, trust, repair), worksheets and a catch-up recording. Open to everyone, no referral or previous therapy needed. First session Wednesday 6 January 2027.</p>
+            <a class="btn bdk" href="healing-relationships.html">Full details &amp; join →</a>
           </div>
           <div style="background:var(--charcoal);color:var(--white);padding:2rem">
-            <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-lt);margin-bottom:.8rem">Programme fee</div>
-            <div style="font-family:var(--serif);font-size:3rem;line-height:1;margin-bottom:.3rem">£550</div>
-            <div style="font-size:.82rem;color:rgba(255,255,255,.5)">see programme page for full details</div>
+            <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-lt);margin-bottom:.8rem">Membership</div>
+            <div style="font-family:var(--serif);font-size:3rem;line-height:1;margin-bottom:.3rem">£65</div>
+            <div style="font-size:.82rem;color:rgba(255,255,255,.5)">a month · cancel anytime · first and third Wednesdays, 6pm UK</div>
           </div>
         </div>
       </div>
@@ -807,13 +807,13 @@ nav{top:4px}
         <li><a href="therapy.html#individual">Individual Therapy</a></li>
         <li><a href="therapy.html#couples">Couples Therapy</a></li>
         <li><a href="therapy.html#couples">Couples Intensive</a></li>
-        <li><a href="therapy.html#group">Small Group Therapy</a></li>
+        <li><a href="healing-relationships.html">Healing Relationships Membership</a></li>
         <li><a href="therapy.html#individual">Sex Therapy</a></li>
       </ul></div>
       <div class="fc2"><h4>For Therapists</h4><ul>
         <li><a href="for-therapists.html">Clinical Supervision</a></li>
         <li><a href="for-therapists.html">Small Group Supervision</a></li>
-        <li><a href="for-therapists.html#healing-relationships">Healing Relationships</a></li>
+        <li><a href="for-therapists.html#community">Therapists' Community (coming 2027)</a></li>
         <li><a href="mailing-list.html">Mailing List</a></li>
       </ul></div>
       <div class="fc2"><h4>Information</h4><ul>
@@ -838,7 +838,7 @@ nav{top:4px}
   </div>
 </div>
 <script>
-const PAGES={"home": "index.html", "therapy": "therapy.html", "book": "book.html", "therapists": "for-therapists.html", "mailing": "mailing-list.html", "about": "about.html", "fees": "fees.html", "contact": "contact.html", "faq": "faq.html", "privacy": "privacy-policy.html", "terms": "terms.html", "group-therapy": "small-group-therapy.html", "group-supervision": "small-group-supervision.html"};
+const PAGES={"home": "index.html", "therapy": "therapy.html", "book": "book.html", "therapists": "for-therapists.html", "mailing": "mailing-list.html", "about": "about.html", "fees": "fees.html", "contact": "contact.html", "faq": "faq.html", "privacy": "privacy-policy.html", "terms": "terms.html", "group-therapy": "healing-relationships.html", "healing-relationships": "healing-relationships.html", "group-supervision": "small-group-supervision.html"};
 function sp(n){ if(PAGES[n]) window.location.href=PAGES[n]; }
 
 function switchTherapyTab(name){
@@ -927,7 +927,7 @@ function sbt(sessionId){
 function applyHash(){
   const h=(location.hash||'').replace('#','');
   if(!h) return;
-  const TT={'healing-relationships':'membership'};
+  const TT={'healing-relationships':'membership','community':'membership'};
   if(document.getElementById('tht-'+h)) switchTherapyTab(h);
   else if(document.getElementById('ttht-'+(TT[h]||h))) switchTherapistsTab(TT[h]||h);
   else if(document.getElementById('bk-'+h)) sbt(h);
