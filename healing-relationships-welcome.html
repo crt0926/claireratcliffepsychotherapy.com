@@ -365,13 +365,15 @@ nav{top:4px}
   <meta property="og:site_name" content="Claire Ratcliffe Psychotherapy">
   <meta property="og:locale" content="en_GB">
   <style>
-  .hrw-form .formkit-alert{list-style:none;font-size:.84rem;padding:.8rem 1rem;margin:0 0 1rem;border:1px solid var(--border);background:var(--light)}
-  .hrw-form .formkit-alert:empty{display:none}
-  .hrw-form .formkit-alert-success{border-color:var(--sage);background:#eef3ea;color:var(--sage-dk)}
-  .hrw-form .formkit-alert-error{border-color:#c0564a;background:#fbeeec;color:#8a2f25}
-  .hrw-form .formkit-spinner{display:none}
-  .hrw-form button[data-active] span{opacity:.5}
-  @media(max-width:820px){.sgt-grid{grid-template-columns:1fr !important}}
+  .fh{font-family:var(--serif);font-size:1.1rem;margin:1.4rem 0 .8rem;padding-top:1rem;border-top:1px solid var(--border);color:var(--charcoal)}
+  .fr{display:grid;grid-template-columns:1fr 1fr;gap:0 1.2rem}
+  #hrIntake textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--border);font-family:var(--sans);font-size:.9rem;font-weight:300;line-height:1.6;background:var(--white);color:var(--charcoal)}
+  #hrIntake textarea:focus{outline:none;border-color:var(--sage)}
+  .rg{display:flex;gap:1.5rem;margin-top:.2rem}
+  .rl{display:flex;align-items:center;gap:.4rem;font-size:.88rem;color:var(--mid);cursor:pointer}
+  .fg .rl{display:flex;align-items:center;gap:.45rem;font-size:.88rem;color:var(--mid);text-transform:none;letter-spacing:0;margin:0;cursor:pointer}
+  .fg .rl input[type=radio]{-webkit-appearance:radio;appearance:radio;width:15px;height:15px;margin:0;padding:0;accent-color:var(--sage)}
+  @media(max-width:820px){.fr{grid-template-columns:1fr}}
   </style>
   <script>if(window.top!==window.self){try{window.top.location.href=window.location.href;}catch(e){}}</script>
   <!-- Google Analytics: loads only after the visitor accepts cookies (Consent Mode, default denied) -->
@@ -427,32 +429,60 @@ nav{top:4px}
   <div class="ih-compact"><div class="w"><div class="ih-c">
     <span class="lbl">Healing Relationships</span>
     <h1 style="font-size:clamp(2.1rem,3.5vw,3.4rem);margin:.35rem 0 1.1rem;font-family:var(--serif);font-weight:300;line-height:1.12">Welcome,<br><em style="font-style:italic;color:var(--sage)">I'm so glad you're joining us</em></h1>
-    <p style="font-size:.97rem;color:var(--mid);margin-bottom:1.7rem;line-height:1.88;max-width:560px">Your payment has gone through and you're a member. Stripe will email you a receipt. There's one more thing to do so that the welcome pack, the worksheets and the Zoom link actually reach you.</p>
+    <p style="font-size:.97rem;color:var(--mid);margin-bottom:1.7rem;line-height:1.88;max-width:560px">Your payment has gone through and you're a member. Stripe will email you a receipt. There's one form to fill in before your first session, so I know a little about you and so the welcome pack, worksheets and Zoom link reach you. It takes about five minutes.</p>
   </div></div></div>
   <div class="w" style="padding-bottom:2rem">
-    <div class="sgt-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start">
-      <div id="members" style="background:var(--white);border:2px solid var(--sage);padding:1.6rem;scroll-margin-top:90px">
-        <h3 style="font-family:var(--serif);font-size:1.3rem;margin-bottom:.4rem">1. Add yourself to the members list</h3>
-        <p style="font-size:.84rem;color:var(--mid);margin-bottom:1rem;line-height:1.7">Please use the same email address you paid with, so I can match you up. This is the list I send everything to.</p>
-        <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-        <form action="https://app.kit.com/forms/10091681/subscriptions" class="seva-form formkit-form hrw-form" method="post" data-sv-form="10091681" data-uid="1f40405785" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;You're on the members list. Claire will email your welcome pack and the Zoom link before your first session.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;}},&quot;version&quot;:&quot;5&quot;}">
-          <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-          <div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">
-            <div class="fg"><label for="hrw_first_name">First name *</label><input class="formkit-input" type="text" name="fields[first_name]" id="hrw_first_name" aria-label="First name" required/></div>
-            <div class="fg"><label for="hrw_email">Email address (the one you paid with) *</label><input class="formkit-input" type="email" name="email_address" id="hrw_email" aria-label="Email address" required/></div>
-            <p class="fn">Members' emails only: your welcome pack, worksheets, recordings and session reminders. See the <a href="privacy-policy.html" style="color:var(--sage)">privacy policy</a>.</p>
-            <button data-element="submit" type="submit" class="formkit-submit btn bdk" style="width:100%"><div class="formkit-spinner"><div></div><div></div><div></div></div><span>Add me to the members list</span></button>
-          </div>
-        </form>
-      </div>
-      <div>
-        <div class="fc" style="margin-bottom:1.2rem"><h3>2. Look out for your welcome pack</h3><p style="font-size:.86rem;color:var(--mid);line-height:1.8">Within a couple of days I'll email you a short welcome pack: how the sessions run, the Zoom link we use every time, and the theme we're starting with. Before each session you'll get a reminder with the link, so there's nothing to write down.</p></div>
-        <div class="fc" style="margin-bottom:1.2rem"><h3>3. The sessions</h3><p style="font-size:.86rem;color:var(--mid);line-height:1.8">First and third Wednesday of each month, 6pm to 7.30pm UK time, on Zoom. The first one is Wednesday 6 January 2027. Cameras can stay off, nobody is asked to speak, and you can put questions in the chat. Use headphones if that would help you feel more private.</p></div>
-        <div class="fc" style="margin-bottom:1.2rem"><h3>4. Worksheets and catch-up recordings</h3><p style="font-size:.86rem;color:var(--mid);line-height:1.8">Each month's worksheet comes by email. If you miss a session, a view-only recording (only me on screen) follows within a day or two and works for two weeks.</p></div>
-        <div class="fc"><h3>5. Your membership</h3><p style="font-size:.86rem;color:var(--mid);line-height:1.8">£65 a month, taken automatically. To update your card, see invoices or cancel at the end of your current month, use <a href="https://billing.stripe.com/p/login/fZufZi2r63nA11712rew800" target="_blank" rel="noopener" style="color:var(--sage)">manage my membership</a> (it asks for the email you paid with). The same link is on the <a href="healing-relationships.html" style="color:var(--sage)">Healing Relationships page</a> whenever you need it.</p></div>
-      </div>
+    <div id="intake" style="background:var(--white);border:2px solid var(--sage);padding:1.8rem;max-width:860px;margin:0 auto 2.5rem;scroll-margin-top:90px">
+      <h3 style="font-family:var(--serif);font-size:1.4rem;margin-bottom:.4rem">Your membership form</h3>
+      <p style="font-size:.84rem;color:var(--mid);margin-bottom:1.4rem;line-height:1.7">Everything you write here comes only to me and is kept confidentially. Please use the same email address you paid with. Fields marked * are required.</p>
+      <form id="hrIntake" onsubmit="submitHrIntake(event)">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <h4 class="fh">About you</h4>
+        <div class="fr"><div class="fg"><label for="hr_full_name">Full name *</label><input type="text" name="full_name" id="hr_full_name" required/></div><div class="fg"><label for="hr_preferred_name">Preferred name (if different) (optional)</label><input type="text" name="preferred_name" id="hr_preferred_name"/></div></div>
+        <div class="fr"><div class="fg"><label for="hr_date_of_birth">Date of birth *</label><input type="text" name="date_of_birth" id="hr_date_of_birth" required placeholder="DD/MM/YYYY"/></div><div class="fg"><label for="hr_pronouns">Pronouns (optional)</label><input type="text" name="pronouns" id="hr_pronouns"/></div></div>
+        <div class="fr"><div class="fg"><label for="hr_email">Email address (the one you paid with) *</label><input type="email" name="email_address" id="hr_email" required/></div><div class="fg"><label for="hr_phone">Phone number *</label><input type="text" name="phone" id="hr_phone" required/></div></div>
+        <div class="fr"><div class="fg"><label for="hr_country">Country of residence *</label><input type="text" name="country" id="hr_country" required/></div><div class="fg"><label for="hr_timezone">Time zone (or nearest major city) *</label><input type="text" name="timezone" id="hr_timezone" required/></div></div>
+        <div class="fg"><label for="hr_occupation">Occupation *</label><input type="text" name="occupation" id="hr_occupation" required/></div>
+        <h4 class="fh">Emergency contact</h4>
+        <div class="fr"><div class="fg"><label for="hr_emergency_name">Full name *</label><input type="text" name="emergency_name" id="hr_emergency_name" required/></div><div class="fg"><label for="hr_emergency_relationship">Relationship to you *</label><input type="text" name="emergency_relationship" id="hr_emergency_relationship" required/></div></div>
+        <div class="fg"><label for="hr_emergency_phone">Phone number *</label><input type="text" name="emergency_phone" id="hr_emergency_phone" required/></div>
+        <h4 class="fh">About joining</h4>
+        <div class="fg"><label for="hr_drawn_to">What has drawn you to Healing Relationships? *</label><textarea name="drawn_to" id="hr_drawn_to" rows="3" required></textarea></div>
+        <div class="fg"><label for="hr_hoping_for">What are you hoping to get from the membership? *</label><textarea name="hoping_for" id="hr_hoping_for" rows="3" required></textarea></div>
+        <div class="fg"><label for="hr_learn_about_self">What are you hoping to learn about yourself? *</label><textarea name="learn_about_self" id="hr_learn_about_self" rows="3" required></textarea></div>
+        <div class="fg"><label>Have you had individual therapy before? *</label><div class="rg"><label class="rl"><input type="radio" name="therapy_before" value="yes" required> Yes</label><label class="rl"><input type="radio" name="therapy_before" value="no"> No</label></div></div>
+        <div class="fg"><label>Are you currently in individual therapy? *</label><div class="rg"><label class="rl"><input type="radio" name="therapy_now" value="yes" required> Yes</label><label class="rl"><input type="radio" name="therapy_now" value="no"> No</label></div></div>
+        <div class="fg"><label>Have you taken part in group therapy or group learning before? *</label><div class="rg"><label class="rl"><input type="radio" name="group_before" value="yes" required> Yes</label><label class="rl"><input type="radio" name="group_before" value="no"> No</label></div></div>
+        <div class="fg"><label>Are you currently receiving other psychological or psychiatric support? *</label><div class="rg"><label class="rl"><input type="radio" name="other_support" value="yes" required> Yes</label><label class="rl"><input type="radio" name="other_support" value="no"> No</label></div></div>
+        <h4 class="fh">Your health</h4>
+        <div class="fg"><label for="hr_diagnoses">Do you have any diagnoses you&#39;d like me to be aware of? (optional)</label><p class="fn" style="margin:0 0 .4rem">For example a mental health, neurodevelopmental (such as ADHD or autism) or relevant physical health diagnosis, or one you&#39;re currently exploring.</p><textarea name="diagnoses" id="hr_diagnoses" rows="3"></textarea></div>
+        <div class="fg"><label for="hr_medication">Are you currently taking any medication for your mental health? (optional)</label><p class="fn" style="margin:0 0 .4rem">If so, please tell me what it is and roughly how long you&#39;ve been taking it. You can also mention anything else you feel is relevant, such as recent changes.</p><textarea name="medication" id="hr_medication" rows="3"></textarea></div>
+        <div class="fg"><label for="hr_health">Is there anything about your physical or mental health you&#39;d like me to be aware of before we start? (optional)</label><textarea name="health" id="hr_health" rows="3"></textarea></div>
+        <div class="fg"><label>Have you ever experienced thoughts of harming yourself or others? *</label><div class="rg"><label class="rl"><input type="radio" name="harm_ever" value="yes" required> Yes</label><label class="rl"><input type="radio" name="harm_ever" value="no"> No</label></div></div>
+        <div class="fg"><label>Are you currently experiencing thoughts of harming yourself or others? *</label><div class="rg"><label class="rl"><input type="radio" name="harm_now" value="yes" required> Yes</label><label class="rl"><input type="radio" name="harm_now" value="no"> No</label></div></div>
+        <div class="fg"><label for="hr_heard_about">How did you hear about Claire Ratcliffe Psychotherapy? *</label><textarea name="heard_about" id="hr_heard_about" rows="3" required></textarea></div>
+        <h4 class="fh">Please confirm</h4>
+        <div class="cbg">
+          <div class="ci"><input type="checkbox" id="c_zoom" name="consent_zoom" required><label for="c_zoom">I understand that sessions take place online via Zoom, that I will join from a private space where I won&#39;t be interrupted or overheard, and that sessions are recorded with Claire only on screen for members to catch up. I will not record, screenshot or share sessions, links or recordings.</label></div>
+          <div class="ci"><input type="checkbox" id="c_fee" name="consent_fee" required><label for="c_fee">I understand that the membership is £65 a month, taken automatically by card; that I can cancel at any time through the "Manage my membership" link and will remain a member until the end of the month I have paid for; and that there are no refunds for part months or missed sessions.</label></div>
+          <div class="ci"><input type="checkbox" id="c_confidential" name="consent_confidential" required><label for="c_confidential">I agree to keep confidential anything shared by other members, in the sessions or in the chat, and not to share, copy or distribute any membership materials.</label></div>
+          <div class="ci"><input type="checkbox" id="c_limits" name="consent_limits" required><label for="c_limits">I understand that what I share is confidential, except where there is a risk of serious harm to me or someone else, or where Claire is legally required to share information.</label></div>
+          <div class="ci"><input type="checkbox" id="c_psychoed" name="consent_psychoed" required><label for="c_psychoed">I understand that this is a psychoeducation and personal development membership, not individual therapy, clinical treatment or crisis support, and that I remain responsible for my own therapeutic and clinical arrangements.</label></div>
+          <div class="ci"><input type="checkbox" id="c_age" name="consent_age" required><label for="c_age">I confirm I am 18 or over. I understand that Claire is unable to work with people living in some countries, that she will check this when she receives my form, and that she will refund my payment in full if she cannot proceed.</label></div>
+          <div class="ci"><input type="checkbox" id="c_terms" name="consent_terms" required><label for="c_terms">I have read and agree to the Terms &amp; Conditions of Service, and I have read and understood the Privacy Policy. Both can be found via the links in the footer of the website.</label></div>
+          <div class="ci"><input type="checkbox" id="c_emails" name="consent_emails" required><label for="c_emails">I&#39;d like to receive the members&#39; emails: welcome pack, worksheets, recordings and session reminders.</label></div>
+        </div>
+        <p class="fn">Your answers are sent securely to Claire and stored in line with the <a href="privacy-policy.html" style="color:var(--sage)">privacy policy</a>. Submitting this form also adds you to the members&#39; email list.</p>
+        <button type="submit" class="btn bdk" style="width:100%;margin-top:.5rem">Send my form and join the members list</button>
+      </form>
     </div>
-    <div class="fb" style="margin-top:2rem"><strong>If anything isn't clear,</strong> or the welcome pack hasn't arrived within three days (do check your junk folder first), just email me at claireratcliffetherapy@gmail.com. I'm really looking forward to working with you.<br><br><span style="font-family:var(--serif);font-size:1.15rem;color:var(--charcoal)">Claire</span></div>
+    <div class="fg2">
+      <div class="fc"><h3>1. Look out for your welcome pack</h3><p style="font-size:.86rem;color:var(--mid);line-height:1.8">Within a couple of days of your form arriving I'll email you a short welcome pack: how the sessions run, the Zoom link we use every time, and the theme we're starting with. Before each session you'll get a reminder with the link, so there's nothing to write down.</p></div>
+      <div class="fc"><h3>2. The sessions</h3><p style="font-size:.86rem;color:var(--mid);line-height:1.8">First and third Wednesday of each month, 6pm to 7.30pm UK time, on Zoom. The first one is Wednesday 6 January 2027. Cameras can stay off, nobody is asked to speak, and you can put questions in the chat. Use headphones if that would help you feel more private.</p></div>
+      <div class="fc"><h3>3. Worksheets and catch-up recordings</h3><p style="font-size:.86rem;color:var(--mid);line-height:1.8">Each month's worksheet comes by email. If you miss a session, a view-only recording (only me on screen) follows within a day or two and works for two weeks.</p></div>
+      <div class="fc"><h3>4. Your membership</h3><p style="font-size:.86rem;color:var(--mid);line-height:1.8">£65 a month, taken automatically. To update your card, see invoices or cancel at the end of your current month, use <a href="https://billing.stripe.com/p/login/fZufZi2r63nA11712rew800" target="_blank" rel="noopener" style="color:var(--sage)">manage my membership</a> (it asks for the email you paid with). The same link is on the <a href="healing-relationships.html" style="color:var(--sage)">Healing Relationships page</a> whenever you need it.</p></div>
+    </div>
+    <div class="fb"><strong>If anything isn't clear,</strong> or the welcome pack hasn't arrived within three days of sending your form (do check your junk folder first), just email me at claireratcliffetherapy@gmail.com. I'm really looking forward to working with you.<br><br><span style="font-family:var(--serif);font-size:1.15rem;color:var(--charcoal)">Claire</span></div>
     <div style="margin-top:2rem;text-align:center;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap"><a class="btn bdk" href="index.html">Back to the home page</a><a class="btn bot" href="contact.html">Contact Claire</a></div>
   </div>
   <footer>
@@ -604,6 +634,36 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.nlinks a[href]').forEach(a=>{ if(a.getAttribute('href').split('#')[0]===here) a.classList.add('cur'); });
 });
 window.addEventListener('hashchange',applyHash);
+</script>
+<script>
+// Membership form: adds the member to the Kit members list (form 10091681) and emails the answers to Claire via Formspree
+async function submitHrIntake(e){
+  e.preventDefault();
+  const form=e.target; const btn=form.querySelector('button[type=submit]'); const original=btn.textContent;
+  if(!form.checkValidity()){ form.reportValidity(); return; }
+  if(form.querySelector('[name=_gotcha]').value) return;
+  btn.textContent='Sending...'; btn.disabled=true;
+  const fd=new FormData(form);
+  // 1. Kit members list
+  let kitOk='no';
+  try{
+    const kf=new FormData();
+    kf.append('email_address',fd.get('email_address'));
+    kf.append('fields[first_name]',(fd.get('preferred_name')||fd.get('full_name')||'').trim().split(' ')[0]);
+    const r=await fetch('https://app.kit.com/forms/10091681/subscriptions',{method:'POST',body:kf,headers:{'Accept':'application/json'}});
+    if(r.ok) kitOk='yes';
+  }catch(err){}
+  // 2. Email Claire
+  const fields={_subject:'Healing Relationships membership form | '+(fd.get('full_name')||''),_replyto:fd.get('email_address'),added_to_kit_members_list:kitOk};
+  fd.forEach((v,k)=>{ if(k!=='_gotcha' && v!=='') fields[k]=v; });
+  form.querySelectorAll('input[type=checkbox]').forEach(cb=>{ fields[cb.name]=cb.checked?'yes':'no'; });
+  try{
+    const res=await fetch('https://formspree.io/f/xrpglpyp',{method:'POST',body:JSON.stringify(fields),headers:{'Accept':'application/json','Content-Type':'application/json'}});
+    if(res.ok){ sf("Thank you, your form has arrived and you're on the members list. Claire will email your welcome pack and the Zoom link before your first session."); form.reset(); }
+    else sf('Something went wrong sending the form. Please email claireratcliffetherapy@gmail.com and Claire will send it to you directly.');
+  }catch(err){ sf('Something went wrong sending the form. Please email claireratcliffetherapy@gmail.com and Claire will send it to you directly.'); }
+  btn.textContent=original; btn.disabled=false;
+}
 </script>
 <!-- Cookie consent banner -->
 <style>
