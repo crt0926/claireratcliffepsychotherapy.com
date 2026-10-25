@@ -659,7 +659,12 @@ async function submitHrIntake(e){
   form.querySelectorAll('input[type=checkbox]').forEach(cb=>{ fields[cb.name]=cb.checked?'yes':'no'; });
   try{
     const res=await fetch('https://formspree.io/f/xrpglpyp',{method:'POST',body:JSON.stringify(fields),headers:{'Accept':'application/json','Content-Type':'application/json'}});
-    if(res.ok){ sf("Thank you, your form has arrived and you're on the members list. Claire will email your welcome pack and the Zoom link before your first session."); form.reset(); }
+    if(res.ok){
+      form.reset();
+      const box=document.getElementById('intake');
+      box.innerHTML='<h3 style="font-family:var(--serif);font-size:1.4rem;margin-bottom:.4rem">Thank you, your form has been sent</h3><p style="font-size:.9rem;color:var(--mid);line-height:1.8;margin:0">You\'re on the members list. Claire will email your welcome pack and the Zoom link before your first session. Here\'s what happens next.</p>';
+      box.scrollIntoView({behavior:'smooth',block:'start'});
+    }
     else sf('Something went wrong sending the form. Please email claireratcliffetherapy@gmail.com and Claire will send it to you directly.');
   }catch(err){ sf('Something went wrong sending the form. Please email claireratcliffetherapy@gmail.com and Claire will send it to you directly.'); }
   btn.textContent=original; btn.disabled=false;
