@@ -731,6 +731,58 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 window.addEventListener('hashchange',applyHash);
 </script>
+<!-- Groups pop-up (home page only; shown once per 7 days) -->
+<style>
+.gp{display:none;position:fixed;inset:0;background:rgba(30,32,24,.72);z-index:9000;align-items:center;justify-content:center;padding:1rem}
+.gp.open{display:flex}
+.gp-box{position:relative;background:var(--white);max-width:860px;width:100%;padding:2.4rem 2.2rem 2rem;animation:fi .3s ease;max-height:92vh;overflow:auto}
+.gp-x{position:absolute;top:.7rem;right:.9rem;background:none;border:0;font-size:1.6rem;line-height:1;color:var(--muted);cursor:pointer;padding:.3rem .5rem}
+.gp-x:hover{color:var(--charcoal)}
+.gp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.4rem}
+.gp-card{background:var(--off);border-top:2px solid var(--sage);padding:1.4rem 1.5rem;display:flex;flex-direction:column}
+.gp-card h3{font-family:var(--serif);font-size:1.3rem;margin:.3rem 0 .5rem;color:var(--charcoal)}
+.gp-card p{font-size:.86rem;color:var(--mid);line-height:1.75;margin:0 0 1rem;flex:1}
+.gp-card .btn{text-align:center}
+@media(max-width:700px){.gp-grid{grid-template-columns:1fr}.gp-box{padding:2.2rem 1.3rem 1.5rem}}
+</style>
+<div class="gp" id="gp" role="dialog" aria-modal="true" aria-label="New groups starting soon">
+  <div class="gp-box">
+    <button class="gp-x" aria-label="Close" onclick="gpClose()">&times;</button>
+    <span class="lbl">Starting soon</span>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2rem);margin:0">Two new online groups</h2>
+    <div class="gp-grid">
+      <div class="gp-card">
+        <span class="lbl" style="margin-bottom:.2rem">Open to everyone · from 6 January</span>
+        <h3>Healing Relationships</h3>
+        <p>An ongoing monthly membership for reconnecting with yourself, building self-trust and understanding the patterns that shape your relationships. Two live sessions a month, £65 a month, cancel anytime.</p>
+        <a class="btn bdk" href="healing-relationships.html" onclick="gpClose()">Find out more</a>
+      </div>
+      <div class="gp-card">
+        <span class="lbl" style="margin-bottom:.2rem">For therapists · from 4 December</span>
+        <h3>Small Group Supervision</h3>
+        <p>A six-month online supervision group for therapists working with couples and relationships. Monthly, two hours, a small group of peers. Book by Friday 20 November.</p>
+        <a class="btn bdk" href="small-group-supervision.html" onclick="gpClose()">Find out more</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function gpClose(){
+  document.getElementById('gp').classList.remove('open');
+  try{localStorage.setItem('crp_groups_popup',String(Date.now()));}catch(e){}
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var seen=null; try{seen=Number(localStorage.getItem('crp_groups_popup'))||null;}catch(e){}
+  if(seen && (Date.now()-seen)<7*24*60*60*1000) return;
+  // wait until the cookie banner has been answered, then show after a short pause
+  function show(){ document.getElementById('gp').classList.add('open'); }
+  function wait(){ if(window.crpConsent===null){ setTimeout(wait,500); } else { setTimeout(show,1500); } }
+  setTimeout(wait,500);
+  var gp=document.getElementById('gp');
+  gp.addEventListener('click',function(e){ if(e.target===gp) gpClose(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && gp.classList.contains('open')) gpClose(); });
+});
+</script>
 <!-- Cookie consent banner -->
 <style>
 .ckb{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;margin:0 auto;max-width:560px;background:var(--white);color:var(--charcoal);border:1px solid var(--border);box-shadow:0 10px 40px rgba(0,0,0,.12);padding:1.1rem 1.3rem;font-family:var(--sans);font-size:.84rem;line-height:1.7;display:none}
