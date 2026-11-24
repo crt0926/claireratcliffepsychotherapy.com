@@ -484,7 +484,7 @@ nav{top:4px}
         <div class="fg"><label for="cf-phone">Phone</label><input type="tel" id="cf-phone" name="phone"/></div>
         <div class="fg"><label for="cf-enquiry">I am enquiring about</label><select id="cf-enquiry" name="enquiring_about"><option value="">Please select</option><option>Individual therapy</option><option>Couples / relationship therapy</option><option>Couples therapy intensive</option><option>Clinical supervision (individual)</option><option>Small Group Supervision</option><option>Healing Relationships membership</option><option>Therapists' community (coming 2027)</option><option>Something else</option></select></div>
         <div class="fg"><label for="cf-message">Your message</label><textarea id="cf-message" name="message" required placeholder="Tell me a little about what you're looking for, or just say hello."></textarea></div>
-        <div class="cr"><input type="checkbox" id="cl1" name="marketing_consent" value="yes"><label for="cl1">I would like to receive marketing updates from Claire Ratcliffe Psychotherapy. I can unsubscribe at any time.</label></div>
+        <div class="cr"><input type="checkbox" id="cl1" name="marketing_consent" value="yes" checked><label for="cl1">We'll also add you to Claire's mailing list for occasional news about groups, courses and the membership. Untick this box if you'd rather we didn't. You can unsubscribe at any time.</label></div>
         <p class="fn">Data processed in accordance with GDPR and our <a href="privacy-policy.html" style="color:var(--sage);cursor:pointer">privacy policy</a>.</p>
         <br><button type="submit" class="btn bdk">Send message →</button>
       </form>
@@ -593,7 +593,23 @@ async function sendFormspree(e, subject, okMsg){
   }catch(err){ sf('Something went wrong. Please email claireratcliffetherapy@gmail.com directly.'); }
   btn.textContent=original; btn.disabled=false;
 }
-function sendContactForm(e){ sendFormspree(e,'Website Enquiry | Claire Ratcliffe Psychotherapy','Thank you, your message has been received. Claire will be in touch within 2 working days.'); }
+// Mailing list: if the box is left ticked, send name + email to the Kit mailing-list form (double opt-in,
+// so they only join once they click the confirmation email). The message itself never goes to Kit.
+// The Kit 'interest' field records the enquiry topic so enquirers can be grouped in Kit.
+function addEnquirerToKit(form){
+  try{
+    if(!form.querySelector('#cl1')?.checked) return;
+    const email=form.querySelector('#cf-email')?.value.trim(); if(!email) return;
+    const fd=new FormData();
+    fd.append('email_address',email);
+    fd.append('fields[first_name]',form.querySelector('#cf-name')?.value.trim()||'');
+    fd.append('fields[last_name]',form.querySelector('#cf-lname')?.value.trim()||'');
+    const topic=form.querySelector('#cf-enquiry')?.value||'Something else';
+    fd.append('fields[interest]','Website enquiry: '+topic);
+    fetch('https://app.kit.com/forms/9765268/subscriptions',{method:'POST',body:fd,headers:{'Accept':'application/json'}}).catch(()=>{});
+  }catch(err){}
+}
+function sendContactForm(e){ addEnquirerToKit(e.target.closest('form')); sendFormspree(e,'Website Enquiry | Claire Ratcliffe Psychotherapy','Thank you, your message has been received. Claire will be in touch within 2 working days.'); }
 function submitIntensiveEnquiry(e){ sendFormspree(e,'Couples Intensive Enquiry | Claire Ratcliffe Psychotherapy','Your enquiry has been received. Claire will be in touch within 2 working days.'); }
 function submitSupervisionEnquiry(e){ sendFormspree(e,'Small Group Supervision Enquiry | Claire Ratcliffe Psychotherapy','Thank you, your enquiry has been received. Claire will be in touch within 2 working days.'); }
 
